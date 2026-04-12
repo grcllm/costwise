@@ -1,0 +1,46 @@
+{
+  "tips": [
+    {
+      "id": "tip-001",
+      "category": "palengke",
+      "title": "Buy in Bulk at the Palengke",
+      "body": "Purchase vegetables and fruits in bulk during peak season when prices are lower. Store properly to extend freshness.",
+      "url": "/tips/tip-001"
+    },
+    {
+      "id": "tip-002",
+      "category": "palengke",
+      "title": "Shop Early Morning for Fresh Produce",
+      "body": "Visit the palengke early in the morning for the freshest produce and better prices before the rush.",
+      "url": "/tips/tip-002"
+    },
+    {
+      "id": "tip-003",
+      "category": "energy-saving",
+      "title": "Unplug Appliances When Not in Use",
+      "body": "Phantom loads from plugged-in appliances can add up. Unplug devices or use power strips to save on electricity.",
+      "url": "/tips/tip-003"
+    },
+    {
+      "id": "tip-004",
+      "category": "energy-saving",
+      "title": "Use LED Bulbs",
+      "body": "Replace traditional bulbs with LED lights. They use 75% less energy and last 25 times longer.",
+      "url": "/tips/tip-004"
+    },
+    {
+      "id": "tip-005",
+      "category": "commuter-hacks",
+      "title": "Use Beep Cards for Discounts",
+      "body": "Load your Beep card to get discounts on MRT, LRT, and participating bus routes.",
+      "url": "/tips/tip-005"
+    },
+    {
+      "id": "tip-006",
+      "category": "commuter-hacks",
+      "title": "Carpool with Colleagues",
+      "body": "Share rides with coworkers to split fuel costs and reduce your daily commute expenses.",
+      "url": "/tips/tip-006"
+    }
+  ]
+}

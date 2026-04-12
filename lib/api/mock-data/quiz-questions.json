@@ -1,0 +1,138 @@
+{
+  "quizzes": [
+    {
+      "slug": "what-is-inflation",
+      "title": "What is Inflation?",
+      "linkedLearnSlug": "what-is-inflation",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "What is inflation?",
+          "options": [
+            "A decrease in the general price level",
+            "An increase in the general price level over time",
+            "A measure of unemployment",
+            "The interest rate set by banks"
+          ],
+          "correctIndex": 1,
+          "explanation": "Inflation is the rate at which the general level of prices for goods and services rises, reducing purchasing power."
+        },
+        {
+          "id": "q2",
+          "text": "Which of the following is a common cause of inflation?",
+          "options": [
+            "Increased demand for goods and services",
+            "Decreased government spending",
+            "Lower production costs",
+            "Reduced consumer confidence"
+          ],
+          "correctIndex": 0,
+          "explanation": "When demand exceeds supply, prices tend to rise, causing demand-pull inflation."
+        },
+        {
+          "id": "q3",
+          "text": "How does inflation affect your savings?",
+          "options": [
+            "It increases the value of your money",
+            "It has no effect on savings",
+            "It decreases the purchasing power of your money",
+            "It only affects investments, not savings"
+          ],
+          "correctIndex": 2,
+          "explanation": "Inflation erodes the purchasing power of money over time, meaning your savings can buy less in the future."
+        },
+        {
+          "id": "q4",
+          "text": "What is the typical target inflation rate for the Philippines?",
+          "options": [
+            "0-1%",
+            "2-4%",
+            "5-7%",
+            "8-10%"
+          ],
+          "correctIndex": 1,
+          "explanation": "The Bangko Sentral ng Pilipinas (BSP) typically targets an inflation rate of 2-4% to maintain price stability."
+        },
+        {
+          "id": "q5",
+          "text": "Which institution in the Philippines is responsible for managing inflation?",
+          "options": [
+            "Department of Finance",
+            "Philippine Statistics Authority",
+            "Bangko Sentral ng Pilipinas",
+            "Securities and Exchange Commission"
+          ],
+          "correctIndex": 2,
+          "explanation": "The Bangko Sentral ng Pilipinas (BSP) is the central bank responsible for monetary policy and managing inflation."
+        }
+      ]
+    },
+    {
+      "slug": "purchasing-power",
+      "title": "Purchasing Power",
+      "linkedLearnSlug": "purchasing-power",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "What is purchasing power?",
+          "options": [
+            "The ability to buy goods and services with a given amount of money",
+            "The total amount of money you earn",
+            "The interest rate on your savings",
+            "The value of your investments"
+          ],
+          "correctIndex": 0,
+          "explanation": "Purchasing power refers to how much goods and services you can buy with a specific amount of money."
+        },
+        {
+          "id": "q2",
+          "text": "If inflation is 5% and your salary increase is 3%, what happens to your purchasing power?",
+          "options": [
+            "It increases by 2%",
+            "It stays the same",
+            "It decreases by 2%",
+            "It increases by 8%"
+          ],
+          "correctIndex": 2,
+          "explanation": "Your real purchasing power decreases because your salary increase (3%) is less than inflation (5%), resulting in a 2% loss."
+        },
+        {
+          "id": "q3",
+          "text": "What could ₱100 buy in 2010 compared to today?",
+          "options": [
+            "Exactly the same amount",
+            "More goods and services",
+            "Fewer goods and services",
+            "It depends on the season"
+          ],
+          "correctIndex": 2,
+          "explanation": "Due to inflation over the years, ₱100 in 2010 had more purchasing power than ₱100 today."
+        },
+        {
+          "id": "q4",
+          "text": "How can you protect your purchasing power?",
+          "options": [
+            "Keep all money in cash",
+            "Invest in assets that grow faster than inflation",
+            "Spend all your money immediately",
+            "Avoid saving money"
+          ],
+          "correctIndex": 1,
+          "explanation": "Investing in assets that appreciate faster than inflation helps maintain or increase your purchasing power."
+        },
+        {
+          "id": "q5",
+          "text": "What happens to purchasing power during deflation?",
+          "options": [
+            "It decreases",
+            "It stays the same",
+            "It increases",
+            "It becomes unpredictable"
+          ],
+          "correctIndex": 2,
+          "explanation": "During deflation, prices fall, so the same amount of money can buy more goods and services, increasing purchasing power."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "rates": [
+    { "year": 2000, "annual_rate": 4.0 },
+    { "year": 2001, "annual_rate": 6.1 },
+    { "year": 2002, "annual_rate": 3.1 },
+    { "year": 2003, "annual_rate": 3.5 },
+    { "year": 2004, "annual_rate": 6.0 },
+    { "year": 2005, "annual_rate": 7.6 },
+    { "year": 2006, "annual_rate": 6.2 },
+    { "year": 2007, "annual_rate": 2.8 },
+    { "year": 2008, "annual_rate": 9.3 },
+    { "year": 2009, "annual_rate": 3.2 },
+    { "year": 2010, "annual_rate": 3.8 },
+    { "year": 2011, "annual_rate": 4.7 },
+    { "year": 2012, "annual_rate": 3.2 },
+    { "year": 2013, "annual_rate": 3.0 },
+    { "year": 2014, "annual_rate": 4.1 },
+    { "year": 2015, "annual_rate": 1.4 },
+    { "year": 2016, "annual_rate": 1.8 },
+    { "year": 2017, "annual_rate": 3.2 },
+    { "year": 2018, "annual_rate": 5.2 },
+    { "year": 2019, "annual_rate": 2.5 },
+    { "year": 2020, "annual_rate": 2.6 },
+    { "year": 2021, "annual_rate": 3.9 },
+    { "year": 2022, "annual_rate": 5.8 },
+    { "year": 2023, "annual_rate": 6.0 },
+    { "year": 2024, "annual_rate": 3.2 },
+    { "year": 2025, "annual_rate": 2.8 }
+  ],
+  "household_items": [
+    {
+      "id": "nfa-rice-1kg",
+      "label": "1 kg NFA Rice",
+      "base_prices": {
+        "2000": 18.00,
+        "2010": 32.00,
+        "2020": 39.00,
+        "2025": 45.00
+      }
+    },
+    {
+      "id": "diesel-1l",
+      "label": "1 L Diesel Fuel",
+      "base_prices": {
+        "2000": 12.50,
+        "2010": 35.00,
+        "2020": 45.00,
+        "2025": 58.00
+      }
+    },
+    {
+      "id": "eggs-1dozen",
+      "label": "1 Dozen Eggs",
+      "base_prices": {
+        "2000": 35.00,
+        "2010": 55.00,
+        "2020": 75.00,
+        "2025": 95.00
+      }
+    },
+    {
+      "id": "jeepney-fare",
+      "label": "Single Jeepney Fare",
+      "base_prices": {
+        "2000": 4.00,
+        "2010": 7.50,
+        "2020": 9.00,
+        "2025": 13.00
+      }
+    },
+    {
+      "id": "cooking-oil-1l",
+      "label": "1 L Cooking Oil",
+      "base_prices": {
+        "2000": 45.00,
+        "2010": 85.00,
+        "2020": 120.00,
+        "2025": 150.00
+      }
+    }
+  ]
+}
