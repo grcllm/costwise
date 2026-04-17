@@ -1,6 +1,236 @@
 {
   "quizzes": [
     {
+      "slug": "budgeting-mastery",
+      "title": "Budgeting Mastery",
+      "linkedLearnSlug": "budgeting-mastery",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "What is the 50/30/20 budgeting rule?",
+          "options": [
+            "50% savings, 30% needs, 20% wants",
+            "50% needs, 30% wants, 20% savings",
+            "50% wants, 30% savings, 20% needs",
+            "50% investments, 30% needs, 20% wants"
+          ],
+          "correctIndex": 1,
+          "explanation": "The 50/30/20 rule allocates 50% of income to needs, 30% to wants, and 20% to savings and debt repayment."
+        },
+        {
+          "id": "q2",
+          "question": "Which of the following is considered a 'need' in budgeting?",
+          "options": [
+            "Netflix subscription",
+            "Dining out at restaurants",
+            "Rent or mortgage payment",
+            "Designer clothing"
+          ],
+          "correctIndex": 2,
+          "explanation": "Needs are essential expenses required for survival and basic living, such as housing, food, utilities, and healthcare."
+        },
+        {
+          "id": "q3",
+          "question": "What is zero-based budgeting?",
+          "options": [
+            "Spending all your money each month",
+            "Allocating every peso of income to a specific purpose",
+            "Starting with zero savings",
+            "Having no budget at all"
+          ],
+          "correctIndex": 1,
+          "explanation": "Zero-based budgeting means assigning every peso of your income to expenses, savings, or debt until you reach zero, ensuring intentional spending."
+        },
+        {
+          "id": "q4",
+          "question": "How often should you review and adjust your budget?",
+          "options": [
+            "Once a year",
+            "Every 5 years",
+            "Monthly or when circumstances change",
+            "Never, once set it should stay the same"
+          ],
+          "correctIndex": 2,
+          "explanation": "Regular monthly reviews help you track progress and adjust for changing circumstances, income, or expenses."
+        },
+        {
+          "id": "q5",
+          "question": "What is an emergency fund and how much should you save?",
+          "options": [
+            "Money for vacations, save ₱10,000",
+            "3-6 months of living expenses for unexpected events",
+            "Money for shopping, save ₱5,000",
+            "1 week of expenses for minor issues"
+          ],
+          "correctIndex": 1,
+          "explanation": "An emergency fund covers 3-6 months of living expenses to protect you from unexpected financial setbacks like job loss or medical emergencies."
+        },
+        {
+          "id": "q6",
+          "question": "Which expense tracking method is most effective?",
+          "options": [
+            "Keeping receipts in a drawer",
+            "Remembering expenses mentally",
+            "Using a budgeting app or spreadsheet consistently",
+            "Only tracking large purchases"
+          ],
+          "correctIndex": 2,
+          "explanation": "Consistent tracking using apps or spreadsheets provides accurate data and helps identify spending patterns and areas for improvement."
+        },
+        {
+          "id": "q7",
+          "question": "What should you do if your expenses exceed your income?",
+          "options": [
+            "Ignore it and hope it improves",
+            "Use credit cards to cover the difference",
+            "Reduce discretionary spending and find ways to increase income",
+            "Stop saving money"
+          ],
+          "correctIndex": 2,
+          "explanation": "When expenses exceed income, prioritize cutting non-essential spending and explore income-boosting opportunities to achieve balance."
+        },
+        {
+          "id": "q8",
+          "question": "What is lifestyle inflation?",
+          "options": [
+            "Rising prices of goods and services",
+            "Increasing spending as income rises",
+            "Government economic policy",
+            "Interest rates on loans"
+          ],
+          "correctIndex": 1,
+          "explanation": "Lifestyle inflation occurs when you increase spending as your income grows, potentially preventing wealth accumulation despite earning more."
+        }
+      ]
+    },
+    {
+      "slug": "investment-basics",
+      "title": "Investment Basics",
+      "linkedLearnSlug": "investment-basics",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "What is the primary goal of investing?",
+          "options": [
+            "To keep money safe in a bank",
+            "To grow wealth over time",
+            "To spend money on luxury items",
+            "To avoid paying taxes"
+          ],
+          "correctIndex": 1,
+          "explanation": "The primary goal of investing is to grow your wealth over time by putting your money into assets that have the potential to increase in value."
+        },
+        {
+          "id": "q2",
+          "question": "What is a stock?",
+          "options": [
+            "A loan you give to a company",
+            "A share of ownership in a company",
+            "A type of savings account",
+            "A government bond"
+          ],
+          "correctIndex": 1,
+          "explanation": "A stock represents a share of ownership in a company. When you buy stock, you become a partial owner of that company."
+        },
+        {
+          "id": "q3",
+          "question": "What is diversification in investing?",
+          "options": [
+            "Putting all your money in one stock",
+            "Spreading investments across different assets to reduce risk",
+            "Only investing in bonds",
+            "Keeping all money in cash"
+          ],
+          "correctIndex": 1,
+          "explanation": "Diversification means spreading your investments across different types of assets, sectors, or geographic regions to reduce overall risk."
+        },
+        {
+          "id": "q4",
+          "question": "What is a bond?",
+          "options": [
+            "A share of ownership in a company",
+            "A loan you make to a government or corporation",
+            "A type of cryptocurrency",
+            "A savings account"
+          ],
+          "correctIndex": 1,
+          "explanation": "A bond is essentially a loan you make to a government or corporation. In return, they pay you interest over time and return your principal at maturity."
+        },
+        {
+          "id": "q5",
+          "question": "What is a mutual fund?",
+          "options": [
+            "A single stock investment",
+            "A pooled investment managed by professionals",
+            "A type of bank account",
+            "A government savings program"
+          ],
+          "correctIndex": 1,
+          "explanation": "A mutual fund pools money from many investors to purchase a diversified portfolio of stocks, bonds, or other securities, managed by professional fund managers."
+        },
+        {
+          "id": "q6",
+          "question": "What does 'risk tolerance' mean in investing?",
+          "options": [
+            "The amount of money you can invest",
+            "Your ability and willingness to lose money on investments",
+            "The interest rate on your savings",
+            "The fees charged by brokers"
+          ],
+          "correctIndex": 1,
+          "explanation": "Risk tolerance refers to your ability and willingness to endure losses in your investment portfolio in pursuit of higher returns."
+        },
+        {
+          "id": "q7",
+          "question": "What is the relationship between risk and return in investing?",
+          "options": [
+            "Higher risk usually means lower potential returns",
+            "Risk and return are unrelated",
+            "Higher risk usually means higher potential returns",
+            "Lower risk always guarantees higher returns"
+          ],
+          "correctIndex": 2,
+          "explanation": "Generally, investments with higher risk have the potential for higher returns, while lower-risk investments typically offer lower returns."
+        },
+        {
+          "id": "q8",
+          "question": "What is compound interest?",
+          "options": [
+            "Interest paid only on the principal amount",
+            "Interest earned on both principal and accumulated interest",
+            "A type of bank fee",
+            "Interest that decreases over time"
+          ],
+          "correctIndex": 1,
+          "explanation": "Compound interest is interest earned on both your initial investment (principal) and the interest that accumulates over time, leading to exponential growth."
+        },
+        {
+          "id": "q9",
+          "question": "What is the Philippine Stock Exchange (PSE)?",
+          "options": [
+            "A government bank",
+            "A marketplace where stocks are bought and sold",
+            "A type of mutual fund",
+            "A cryptocurrency exchange"
+          ],
+          "correctIndex": 1,
+          "explanation": "The Philippine Stock Exchange (PSE) is the primary stock exchange in the Philippines where publicly traded companies' stocks are bought and sold."
+        },
+        {
+          "id": "q10",
+          "question": "What is dollar-cost averaging?",
+          "options": [
+            "Investing all your money at once",
+            "Investing fixed amounts regularly regardless of market conditions",
+            "Only investing when prices are low",
+            "Converting all investments to US dollars"
+          ],
+          "correctIndex": 1,
+          "explanation": "Dollar-cost averaging is an investment strategy where you invest fixed amounts at regular intervals, which helps reduce the impact of market volatility."
+        }
+      ]
+    },
+    {
       "slug": "what-is-inflation",
       "title": "What is Inflation?",
       "linkedLearnSlug": "what-is-inflation",

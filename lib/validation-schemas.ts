@@ -54,7 +54,7 @@ export type ProfileUpdateInput = z.infer<typeof profileUpdateSchema>;
 // Simulator
 export const simulatorSchema = z.object({
   amount: z
-    .number({ invalid_type_error: 'Please enter a valid number.' })
+    .number({ message: 'Please enter a valid number.' })
     .positive('Amount must be greater than zero.'),
   baseYear: z
     .number()
