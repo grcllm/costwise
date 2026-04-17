@@ -1,28 +1,28 @@
 # CostWise Design System — "Modern Local"
 
-**Version**: 1.0.0  
-**Last Updated**: 2026-04-12
+**Version**: 2.0.0  
+**Last Updated**: 2026-04-15
 
 ---
 
 ## Overview
 
-The CostWise design system combines the trust of traditional finance with the warmth of tropical Philippines, making it ideal for encouraging financial literacy among Filipino users.
+The CostWise design system draws inspiration from the Philippine flag colors, combining national pride with modern inflation awareness education. The palette embodies trust (Flag Blue), courage (Flag Red), and optimism (Sun Yellow), making it ideal for encouraging inflation awareness and practical budgeting among Filipino users.
 
 ---
 
 ## Color Palette
 
-### Brand Colors
+### Brand Colors (Philippine Flag Inspired)
 
-| Role | Token | Hex | RGB | Usage |
-|---|---|---|---|---|
-| Primary (Trust) | `bg-primary` | `#005691` | `0, 86, 145` | Header, primary buttons, active nav links |
-| Primary Foreground | `text-primary-foreground` | `#ffffff` | `255, 255, 255` | Text on primary background |
-| Secondary (Warmth) | `bg-secondary` | `#FFB74D` | `255, 183, 77` | Sign Up button, highlight CTAs, badges |
-| Secondary Foreground | `text-secondary-foreground` | `#1a1a1a` | `26, 26, 26` | Text on secondary background |
-| Accent (Growth) | `bg-accent` | `#00A86B` | `0, 168, 107` | Correct answer indicator, growth stats, bookmark active |
-| Accent Foreground | `text-accent-foreground` | `#ffffff` | `255, 255, 255` | Text on accent background |
+| Role | Token | Hex | RGB | HSL | Usage |
+|---|---|---|---|---|---|
+| Primary (Flag Blue) | `bg-primary` | `#1C3FA8` | `28, 63, 168` | `223 83% 39%` | Header, primary buttons, active nav links, trust elements |
+| Primary Foreground | `text-primary-foreground` | `#ffffff` | `255, 255, 255` | `0 0% 100%` | Text on primary background |
+| Secondary (Flag Red) | `bg-secondary` | `#E53935` | `229, 57, 53` | `4 82% 57%` | Call-to-action buttons, alerts, important highlights |
+| Secondary Foreground | `text-secondary-foreground` | `#ffffff` | `255, 255, 255` | `0 0% 100%` | Text on secondary background |
+| Accent (Sun Yellow) | `bg-accent` | `#FDD835` | `253, 216, 53` | `48 98% 60%` | Success states, achievements, positive highlights |
+| Accent Foreground | `text-accent-foreground` | `#1a1a1a` | `26, 26, 26` | `0 0% 10%` | Text on accent background |
 
 ### Semantic Colors
 
@@ -53,8 +53,39 @@ The CostWise design system combines the trust of traditional finance with the wa
 
 ### Font Families
 
-- **Sans Serif**: Geist (via `next/font/google`)
-- **Monospace**: Geist Mono (via `next/font/google`)
+**System Font Stack** (Native OS Fonts)
+
+- **Sans Serif**: System UI font stack
+  - macOS/iOS: San Francisco
+  - Windows: Segoe UI
+  - Android: Roboto
+  - Linux: System default
+  - Fallback: Arial, sans-serif
+  
+- **Monospace**: System monospace stack
+  - macOS: SF Mono, Menlo
+  - Windows: Consolas
+  - Linux: Liberation Mono
+  - Fallback: Courier New, monospace
+
+**Why System Fonts?**
+- Zero network requests (instant loading)
+- Native OS appearance and feel
+- Optimal rendering and hinting per platform
+- Excellent readability and accessibility
+- Consistent with OS design language
+
+**Implementation:**
+```css
+/* Sans Serif (default) */
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+             'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 
+             'Segoe UI Emoji', 'Segoe UI Symbol';
+
+/* Monospace (code, technical content) */
+font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, 
+             Consolas, 'Liberation Mono', 'Courier New', monospace;
+```
 
 ### Font Scale
 
@@ -105,17 +136,18 @@ Base radius: `--radius: 0.625rem` (10px)
 | State | Background | Text | Border | Icon |
 |---|---|---|---|---|
 | Unanswered | `bg-card` | `text-foreground` | `border-border` | — |
-| Correct | `bg-accent` | `text-accent-foreground` | `border-accent` | ✓ Check |
-| Incorrect | `bg-destructive` | `text-destructive-foreground` | `border-destructive` | ✗ X |
+| Correct | `bg-accent` | `text-accent-foreground` | `border-accent` | `CheckCircle2` |
+| Incorrect | `bg-destructive` | `text-destructive-foreground` | `border-destructive` | `XCircle` |
 
 ### Tip Categories
 
 | Category | Badge Color | Icon |
 |---|---|---|
 | All Tips | `bg-muted` | — |
-| Palengke Tips | `bg-secondary` | 🛒 ShoppingCart |
-| Energy Saving | `bg-success` | ⚡ Zap |
-| Commuter Hacks | `bg-info` | 🚌 Bus |
+| Palengke Tips | `bg-secondary` | `ShoppingBasket` |
+| Energy Saving | `bg-success` | `Zap` |
+| Commuter Hacks | `bg-info` | `Bus` |
+| Budgeting | `bg-muted` | `PiggyBank` |
 
 ### Button Variants
 
@@ -197,7 +229,7 @@ Fixed header height: `64px` (`h-16`)
 
 1. **Never use raw Tailwind color classes** (e.g., `bg-blue-700`). Always use design tokens.
 2. **All icons must be from `lucide-react`**. No custom SVGs without approval.
-3. **Fonts must be loaded via `next/font`**. No CSS `@import`.
+3. **Fonts are system-native**. No custom font loading required. Use `font-mono` class for monospace content.
 4. **Null/empty values show `—`** (em dash) in read-only views.
 5. **One `<h1>` per page**. Use semantic heading hierarchy.
 6. **All icon-only buttons must have `aria-label`**.
@@ -220,9 +252,17 @@ Fixed header height: `64px` (`h-16`)
 ### Primary Button
 
 ```tsx
-<button className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 focus:ring-2 focus:ring-ring focus:ring-offset-2">
+<button className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 focus:ring-2 focus:ring-ring focus:ring-offset-2 font-semibold">
   Click Me
 </button>
+```
+
+### Code/Technical Text
+
+```tsx
+<code className="font-mono text-sm bg-muted px-2 py-1 rounded">
+  npm install costwise
+</code>
 ```
 
 ### Quiz Answer (Correct)

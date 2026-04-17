@@ -53,9 +53,21 @@ Create `.env.local`:
 NEXT_PUBLIC_API_URL=http://localhost:3001/api
 NEXT_PUBLIC_USE_MOCK_DATA=true
 NEXT_PUBLIC_USE_MOCK_AUTH=true
+
+# NextAuth Configuration
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key-here
+
+# Google OAuth (optional)
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
 ```
 
 See `.env.example` for reference.
+
+### Google OAuth Setup
+
+To enable Google Sign-In, follow the detailed setup guide in [GOOGLE_OAUTH_SETUP.md](./GOOGLE_OAUTH_SETUP.md).
 
 ## Tech Stack
 
@@ -86,26 +98,47 @@ See `.env.example` for reference.
 
 ```
 app/                    # Next.js App Router pages
+  api/                  # API routes (auth endpoints)
+  auth/                 # Authentication pages
+  home/                 # Home page
+  learn/                # Learning modules
+  profile/              # User profile
+  quizzes/              # Quiz pages
+  simulator/            # Inflation simulator
+  tips/                 # Tips and advice
 components/             # React components
+  auth/                 # Authentication components
+  common/               # Shared components
+  nav/                  # Navigation components
+  quizzes/              # Quiz-related components
+  ui/                   # UI component library (shadcn/ui)
 contexts/               # React contexts (Auth, etc.)
 hooks/                  # Custom React hooks
 lib/                    # Utilities, types, API layer
   api/                  # API configuration and repositories
     mock-data/          # JSON mock data files
     repositories/       # Data access layer
+  auth.ts               # NextAuth configuration
+  auth-utils.ts         # Auth utility functions
   constants.ts          # App constants
+  jwt.ts                # JWT utilities
+  mock-users.ts         # Mock user data
+  session-manager.ts    # Session management
   types.ts              # TypeScript interfaces
   utils.ts              # Utility functions
   validation-schemas.ts # Zod schemas
 providers/              # React providers
+public/                 # Static assets
+styles/                 # Global styles
 tests/                  # Playwright tests
+types/                  # TypeScript type definitions
 ```
 
 ## Key Features
 
-- Financial literacy education via localized modules
+- Inflation awareness education via localized modules
 - Interactive Inflation Calculator using PSA/BSP data
-- Gamified Financial Literacy Quizzes
+- Gamified Inflation Awareness Quizzes
 - Practical Tips & Localized Budgeting
 - Guest-first architecture (no login required)
 - Optional account creation for cross-device sync
