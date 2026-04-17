@@ -22,7 +22,7 @@ export default function SubmitTipPage() {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
       
-      toast.success("Tip submitted successfully! Thank you for sharing.", {
+      toast.success("Tip submitted successfully!", {
         description: "Your tip has been received and will be reviewed by our team.",
       })
 
