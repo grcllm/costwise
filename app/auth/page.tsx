@@ -227,6 +227,11 @@ function AuthPageContent() {
 
             {mode === "signin" ? (
               <>
+                {/* Demo Credentials Note */}
+                <div className="bg-[#FFFDE7] border border-[#FDD835] rounded-lg p-3">
+                  <p className="text-xs text-[#4A3B00]"><span className="font-bold">Demo:</span> demo@costwise.ph / DemoPass1!</p>
+                </div>
+
                 {/* Sign In Fields */}
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-[#1A237E] ml-1 uppercase tracking-wider">

@@ -15,7 +15,11 @@ export default withAuth(
         
         // Public routes that don't require authentication
         const publicRoutes = ['/', '/auth', '/learn', '/simulator', '/quizzes', '/tips']
-        const isPublicRoute = publicRoutes.some(route => pathname === route || pathname.startsWith('/api/auth'))
+        const isPublicRoute = publicRoutes.some(route => 
+          pathname === route || 
+          pathname.startsWith(route + '/') || 
+          pathname.startsWith('/api/auth')
+        )
         
         // Allow public routes without token
         if (isPublicRoute) {

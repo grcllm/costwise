@@ -3,16 +3,33 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { PlusCircle, Grid3x3, ShoppingBasket, Zap, Bus, PiggyBank, ArrowRight, ThumbsUp, MessageCircle, Lightbulb, Refrigerator, Sun } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { PlusCircle, Grid3x3, ShoppingBasket, Zap, Bus, PiggyBank, ArrowRight, ThumbsUp, MessageCircle, Lightbulb, Refrigerator, Sun, Lock, X } from "lucide-react"
 import { NavigationWrapper } from "@/components/nav/navigation-wrapper"
 import { SectionHeader, Tag, ContentCard } from "@/components/ui"
 import { useIsMobile } from "@/hooks"
+import { useAuth } from "@/contexts/auth-context"
 
 type FilterCategory = 'all' | 'palengke' | 'energy' | 'commuter' | 'budgeting'
 
 export default function TipsPage() {
+  const router = useRouter()
+  const { isAuthenticated } = useAuth()
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all')
+  const [showAuthModal, setShowAuthModal] = useState(false)
   const isMobile = useIsMobile()
+
+  const handleSubmitTip = () => {
+    if (!isAuthenticated) {
+      setShowAuthModal(true)
+    } else {
+      router.push('/submit-tip')
+    }
+  }
+
+  const handleSignIn = () => {
+    router.push('/auth?redirect=/submit-tip')
+  }
 
   const filterButtons = [
     { id: 'all' as FilterCategory, label: 'All Hacks', icon: Grid3x3 },
@@ -56,13 +73,13 @@ export default function TipsPage() {
             <p className="text-white/90 text-lg mb-8">
               Maximize your hard-earned money with community-vetted Pinoy life hacks for every aspect of daily life.
             </p>
-            <Link 
-              href="/submit-tip"
+            <button 
+              onClick={handleSubmitTip}
               className="bg-[#E53935] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2 inline-flex"
             >
               <PlusCircle className="w-5 h-5" />
               Submit a Tip
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -411,6 +428,54 @@ export default function TipsPage() {
           </button>
         </div>
       </main>
+
+      {/* Auth Required Modal */}
+      {showAuthModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button
+              onClick={() => setShowAuthModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-[#FFF9C4] rounded-full flex items-center justify-center mb-4">
+                <Lock className="w-8 h-8 text-[#FDD835]" />
+              </div>
+              
+              <h3 className="text-2xl font-black text-[#1C3FA8] mb-2">
+                Sign In Required
+              </h3>
+              
+              <p className="text-[#1A237E]/70 mb-6">
+                Create an account or sign in to share your money-saving tips with the CostWise community!
+              </p>
+
+              <div className="flex flex-col gap-3 w-full">
+                <button
+                  onClick={handleSignIn}
+                  className="w-full bg-[#1C3FA8] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#0D2B6B] transition-all"
+                >
+                  Sign In to Continue
+                </button>
+                
+                <button
+                  onClick={() => setShowAuthModal(false)}
+                  className="w-full border-2 border-gray-300 text-gray-700 font-bold py-3 px-6 rounded-xl hover:bg-gray-50 transition-all"
+                >
+                  Maybe Later
+                </button>
+              </div>
+
+              <p className="text-xs text-[#1A237E]/60 mt-4">
+                Don't have an account? Sign up takes less than a minute!
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

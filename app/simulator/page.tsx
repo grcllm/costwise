@@ -181,9 +181,11 @@ export default function SimulatorPage() {
             </div>
 
             {/* Educational Context */}
-            <InfoBox variant="info" title="Did you know?">
-              Inflation in the Philippines averaged around 4-6% in recent years, meaning your savings lose value if not invested.
-            </InfoBox>
+            <div className="mt-8">
+              <InfoBox variant="info" title="Did you know?">
+                Inflation in the Philippines averaged around 4-6% in recent years, meaning your savings lose value if not invested.
+              </InfoBox>
+            </div>
           </ContentCard>
 
           {/* Results Panel */}

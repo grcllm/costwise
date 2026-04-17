@@ -1,11 +1,15 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, HelpCircle, TrendingUp, ChevronRight, Building2, Package, Shield } from "lucide-react"
+import { ArrowRight, HelpCircle, TrendingUp, ChevronRight, Building2, Package, Shield, X, Sparkles } from "lucide-react"
 import { NavigationWrapper } from "@/components/nav/navigation-wrapper"
 import { SectionHeader } from "@/components/ui"
+import { useState } from "react"
 
 // This is now a Server Component - no 'use client' needed
 export default function LearnPage() {
+  const [showComingSoonModal, setShowComingSoonModal] = useState(false)
   return (
     <div className="bg-[#F5F7FF] text-[#1A237E] min-h-screen">
       {/* Top Navigation Bar */}
@@ -34,10 +38,13 @@ export default function LearnPage() {
                     Inflation is the rate at which the general level of prices for goods and services is rising. When inflation strikes, each unit of currency buys fewer goods.
                   </p>
                 </div>
-                <button className="w-fit px-6 py-3 bg-[#E53935] text-white font-bold rounded-xl hover:opacity-90 transition-all active:scale-95 flex items-center gap-2">
+                <Link 
+                  href="/learn/what-is-inflation"
+                  className="w-fit px-6 py-3 bg-[#E53935] text-white font-bold rounded-xl hover:opacity-90 transition-all active:scale-95 flex items-center gap-2"
+                >
                   Start Learning
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
               <div className="md:w-1/2 min-h-[300px] bg-slate-100 relative">
                 <Image 
@@ -46,6 +53,7 @@ export default function LearnPage() {
                   src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&auto=format&fit=crop"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
                 <div className="absolute top-4 right-4 bg-[#FDD835] text-[#4A3B00] px-4 py-2 rounded-full font-black text-sm flex items-center gap-2">
                   <TrendingUp className="w-4 h-4" />
@@ -128,9 +136,9 @@ export default function LearnPage() {
                   Understand the Consumer Price Index (CPI) and how government agencies track the cost of living.
                 </p>
               </div>
-              <a className="text-[#E53935] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">
+              <Link href="/learn/cpi-explained" className="text-[#E53935] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Explore Module <ChevronRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -163,39 +171,85 @@ export default function LearnPage() {
             Advanced Learning
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Simple list-alternative cards */}
-            <div className="p-4 bg-white border border-[#C5D3FF] rounded-xl flex items-start gap-4">
-              <div className="bg-[#F5F7FF] p-3 rounded-lg text-[#1C3FA8]">
-                <Building2 className="w-6 h-6" />
+            {/* Card 1 */}
+            <button onClick={() => setShowComingSoonModal(true)} className="bg-white rounded-2xl border border-[#C5D3FF] p-6 hover:shadow-lg transition-shadow group cursor-pointer text-left">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="bg-gradient-to-br from-[#1C3FA8] to-[#0D1F54] p-4 rounded-xl text-white group-hover:scale-110 transition-transform">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-[#1A237E] text-lg mb-1">Central Bank Policy</h4>
+                  <p className="text-sm text-[#1A237E] opacity-70">Interest rates and monetary supply.</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-[#1A237E]">Central Bank Policy</h4>
-                <p className="text-xs text-[#1A237E] opacity-60">Interest rates and monetary supply.</p>
-              </div>
-            </div>
+              <div className="h-1 bg-gradient-to-r from-[#1C3FA8] to-transparent rounded-full"></div>
+            </button>
             
-            <div className="p-4 bg-white border border-[#C5D3FF] rounded-xl flex items-start gap-4">
-              <div className="bg-[#F5F7FF] p-3 rounded-lg text-[#1C3FA8]">
-                <Package className="w-6 h-6" />
+            {/* Card 2 */}
+            <button onClick={() => setShowComingSoonModal(true)} className="bg-white rounded-2xl border border-[#C5D3FF] p-6 hover:shadow-lg transition-shadow group cursor-pointer text-left">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="bg-gradient-to-br from-[#FDD835] to-[#F9A825] p-4 rounded-xl text-[#4A3B00] group-hover:scale-110 transition-transform">
+                  <Package className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-[#1A237E] text-lg mb-1">Supply Chain Impact</h4>
+                  <p className="text-sm text-[#1A237E] opacity-70">Global logistics and cost push inflation.</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-[#1A237E]">Supply Chain Impact</h4>
-                <p className="text-xs text-[#1A237E] opacity-60">Global logistics and cost push inflation.</p>
-              </div>
-            </div>
+              <div className="h-1 bg-gradient-to-r from-[#FDD835] to-transparent rounded-full"></div>
+            </button>
             
-            <div className="p-4 bg-white border border-[#C5D3FF] rounded-xl flex items-start gap-4">
-              <div className="bg-[#F5F7FF] p-3 rounded-lg text-[#1C3FA8]">
-                <Shield className="w-6 h-6" />
+            {/* Card 3 */}
+            <button onClick={() => setShowComingSoonModal(true)} className="bg-white rounded-2xl border border-[#C5D3FF] p-6 hover:shadow-lg transition-shadow group cursor-pointer text-left">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="bg-gradient-to-br from-[#E53935] to-[#C62828] p-4 rounded-xl text-white group-hover:scale-110 transition-transform">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-[#1A237E] text-lg mb-1">Protecting Your Pesos</h4>
+                  <p className="text-sm text-[#1A237E] opacity-70">Strategies to maintain value against inflation.</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-[#1A237E]">Protecting Your Pesos</h4>
-                <p className="text-xs text-[#1A237E] opacity-60">Strategies to maintain value against inflation.</p>
-              </div>
-            </div>
+              <div className="h-1 bg-gradient-to-r from-[#E53935] to-transparent rounded-full"></div>
+            </button>
           </div>
         </section>
       </main>
+
+      {/* Coming Soon Modal */}
+      {showComingSoonModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button
+              onClick={() => setShowComingSoonModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-[#FFFDE7] rounded-full flex items-center justify-center mb-4">
+                <Sparkles className="w-8 h-8 text-[#FDD835]" />
+              </div>
+              
+              <h3 className="text-2xl font-black text-[#1C3FA8] mb-2">
+                Coming Soon
+              </h3>
+              
+              <p className="text-[#1A237E]/70 mb-6">
+                This advanced learning module is currently being developed. Check back soon for more in-depth content on this topic!
+              </p>
+
+              <button
+                onClick={() => setShowComingSoonModal(false)}
+                className="w-full bg-[#1C3FA8] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#0D2B6B] transition-all"
+              >
+                Got It
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

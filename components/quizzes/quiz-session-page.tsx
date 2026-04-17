@@ -1,12 +1,13 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ArrowRight, Lightbulb, TrendingUp, Award, CheckCircle2, XCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Lightbulb, TrendingUp, Award, CheckCircle2, XCircle, Lock, X } from 'lucide-react';
 import { ScoreSummary } from './score-summary';
 import quizData from '@/lib/api/mock-data/quiz-questions.json';
 import { useRouter } from 'next/navigation';
 import { NavigationWrapper } from '@/components/nav/navigation-wrapper';
+import { useAuth } from '@/contexts/auth-context';
 
 interface QuizSessionPageProps {
   moduleSlug: string;
@@ -14,6 +15,8 @@ interface QuizSessionPageProps {
 
 export function QuizSessionPage({ moduleSlug }: QuizSessionPageProps) {
   const router = useRouter();
+  const { isAuthenticated, isLoading } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
   
   const quiz = quizData.quizzes.find(q => q.slug === moduleSlug);
 
@@ -22,6 +25,21 @@ export function QuizSessionPage({ moduleSlug }: QuizSessionPageProps) {
     new Array(quiz?.questions.length || 0).fill(null)
   );
   const [isCompleted, setIsCompleted] = useState(false);
+
+  // Check authentication when component mounts
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) {
+      setShowAuthModal(true);
+    }
+  }, [isAuthenticated, isLoading]);
+
+  const handleSignIn = () => {
+    router.push(`/auth?redirect=/quizzes/${moduleSlug}`);
+  };
+
+  const handleGoBack = () => {
+    router.push('/quizzes');
+  };
 
   if (!quiz) {
     return (
@@ -75,6 +93,52 @@ export function QuizSessionPage({ moduleSlug }: QuizSessionPageProps) {
   };
 
   const getQuestionText = (q: any) => q.question || q.text;
+
+  // Show auth modal if not authenticated
+  if (showAuthModal) {
+    return (
+      <div className="min-h-screen bg-[#F5F7FF]">
+        <NavigationWrapper activeLink="quizzes" />
+        <main className="pt-24 pb-20 px-4 flex items-center justify-center min-h-[calc(100vh-6rem)]">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-[#FFF9C4] rounded-full flex items-center justify-center mb-4">
+                <Lock className="w-8 h-8 text-[#FDD835]" />
+              </div>
+              
+              <h3 className="text-2xl font-black text-[#1C3FA8] mb-2">
+                Sign In Required
+              </h3>
+              
+              <p className="text-[#1A237E]/70 mb-6">
+                Create an account or sign in to track your quiz progress, earn badges, and compete on the leaderboard!
+              </p>
+
+              <div className="flex flex-col gap-3 w-full">
+                <button
+                  onClick={handleSignIn}
+                  className="w-full bg-[#1C3FA8] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#0D2B6B] transition-all"
+                >
+                  Sign In to Continue
+                </button>
+                
+                <button
+                  onClick={handleGoBack}
+                  className="w-full border-2 border-gray-300 text-gray-700 font-bold py-3 px-6 rounded-xl hover:bg-gray-50 transition-all"
+                >
+                  Back to Quizzes
+                </button>
+              </div>
+
+              <p className="text-xs text-[#1A237E]/60 mt-4">
+                Don't have an account? Sign up takes less than a minute!
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   if (isCompleted) {
     return (
