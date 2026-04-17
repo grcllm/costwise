@@ -1,9 +1,39 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, CheckCircle2, TrendingUp, Users } from "lucide-react"
 import { NavigationWrapper } from "@/components/nav/navigation-wrapper"
+import { toast } from "sonner"
+import { useState, useRef } from "react"
 
 export default function SubmitTipPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
+    if (isSubmitting) return
+    
+    setIsSubmitting(true)
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      toast.success("Tip submitted successfully! Thank you for sharing.", {
+        description: "Your tip has been received and will be reviewed by our team.",
+      })
+
+      // Reset form
+      if (formRef.current) {
+        formRef.current.reset()
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   return (
     <div className="bg-[#F5F7FF] text-[#1A237E] min-h-screen">
       {/* Top Navigation Bar */}
@@ -33,7 +63,7 @@ export default function SubmitTipPage() {
           {/* Left Column - Form */}
           <div className="lg:col-span-8">
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-[#C5D3FF]">
-              <form className="space-y-8">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
                 {/* Tip Title */}
                 <div>
                   <label htmlFor="title" className="block text-sm font-bold text-[#1A237E] mb-3">
@@ -46,6 +76,7 @@ export default function SubmitTipPage() {
                     placeholder="e.g., Save 30% on groceries with this simple trick"
                     className="w-full px-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] placeholder:text-[#1A237E]/40 transition-colors"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -57,8 +88,9 @@ export default function SubmitTipPage() {
                   <select
                     id="category"
                     name="category"
-                    className="w-full px-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] transition-colors appearance-none bg-white cursor-pointer"
+                    className="w-full px-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] transition-colors appearance-none bg-white cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                     required
+                    disabled={isSubmitting}
                   >
                     <option value="">Select a category</option>
                     <option value="palengke">Palengke</option>
@@ -88,7 +120,8 @@ export default function SubmitTipPage() {
                       placeholder="500"
                       min="0"
                       step="50"
-                      className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] placeholder:text-[#1A237E]/40 transition-colors"
+                      className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] placeholder:text-[#1A237E]/40 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <p className="text-xs text-[#1A237E]/60 mt-2">
@@ -106,8 +139,9 @@ export default function SubmitTipPage() {
                     name="content"
                     rows={8}
                     placeholder="Share your money-saving tip in detail. Include step-by-step instructions, specific examples, and any important details that will help others replicate your success."
-                    className="w-full px-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] placeholder:text-[#1A237E]/40 transition-colors resize-none"
+                    className="w-full px-5 py-4 rounded-xl border-2 border-[#C5D3FF] focus:border-[#1C3FA8] focus:outline-none text-[#1A237E] placeholder:text-[#1A237E]/40 transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                     required
+                    disabled={isSubmitting}
                   />
                   <p className="text-xs text-[#1A237E]/60 mt-2">
                     Minimum 100 characters
@@ -118,9 +152,10 @@ export default function SubmitTipPage() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full bg-[#E53935] text-white px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:scale-[1.02] active:scale-95 transition-all"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#E53935] text-white px-8 py-5 rounded-xl font-bold text-lg shadow-lg hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    Submit Your Tip
+                    {isSubmitting ? "Submitting..." : "Submit Your Tip"}
                   </button>
                 </div>
               </form>
