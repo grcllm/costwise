@@ -75,7 +75,7 @@ export default function TipsPage() {
             </p>
             <button 
               onClick={handleSubmitTip}
-              className="bg-[#E53935] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2 inline-flex"
+              className="bg-[#E53935] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2 inline-flex hidden md:inline-flex"
             >
               <PlusCircle className="w-5 h-5" />
               Submit a Tip

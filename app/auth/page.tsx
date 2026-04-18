@@ -19,6 +19,7 @@ function AuthPageContent() {
   const [mode, setMode] = useState<"signin" | "signup">("signin")
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const [passwordFocused, setPasswordFocused] = useState(false)
 
   // Check for mode query parameter on mount
   useEffect(() => {
@@ -153,8 +154,8 @@ function AuthPageContent() {
               </>
             ) : (
               <>
-                Understand Inflation, <br/>
-                <span className="text-[#FDD835] drop-shadow-lg">Protect Your Money.</span>
+                Beat Inflation, <br/>
+                <span className="text-[#FDD835] drop-shadow-lg">Build Your Wealth.</span>
               </>
             )}
           </h1>
@@ -162,7 +163,7 @@ function AuthPageContent() {
           <p className="text-base md:text-lg lg:text-xl text-white/95 max-w-md mb-6 md:mb-10 leading-relaxed drop-shadow-lg">
             {mode === "signin" 
               ? "Welcome back! Continue learning how to protect your purchasing power and make informed financial decisions."
-              : "Learn how rising prices affect your money and discover strategies to grow your wealth faster than inflation."
+              : "Join thousands of Filipinos learning to combat inflation, save smarter, and secure their financial future."
             }
           </p>
           
@@ -218,7 +219,7 @@ function AuthPageContent() {
             <p className="text-[#444653]">
               {mode === "signin" 
                 ? "Log in to manage your budget and savings." 
-                : "Start your financial literacy journey today."}
+                : "Learn to beat inflation and protect your purchasing power."}
             </p>
           </div>
 
@@ -287,6 +288,11 @@ function AuthPageContent() {
               </>
             ) : (
               <>
+                {/* Sign In Instead Note */}
+                <div className="bg-[#FFFDE7] border border-[#FDD835] rounded-lg p-3 mb-6">
+                  <p className="text-xs text-[#4A3B00]">Want to test first? <button type="button" onClick={() => setMode("signin")} className="font-bold text-[#1C3FA8] hover:underline">Sign in instead</button> with demo credentials.</p>
+                </div>
+
                 {/* Sign Up Fields */}
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-[#1A237E] ml-1 uppercase tracking-wider">
@@ -314,6 +320,8 @@ function AuthPageContent() {
                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-[#747684] group-focus-within:text-[#1C3FA8] transition-colors h-5 w-5" />
                     <input 
                       {...register("password")}
+                      onFocus={() => setPasswordFocused(true)}
+                      onBlur={() => setPasswordFocused(false)}
                       className="w-full pl-12 pr-12 py-4 bg-white border border-[#C5D3FF] rounded-2xl focus:ring-2 focus:ring-[#1C3FA8] focus:border-transparent outline-none transition-all placeholder:text-[#C4C5D5] font-medium" 
                       placeholder="••••••••" 
                       type={showPassword ? "text" : "password"}
@@ -333,15 +341,17 @@ function AuthPageContent() {
                   {errors.password && (
                     <p className="text-xs text-[#E53935] font-semibold ml-1">{errors.password.message}</p>
                   )}
-                  <div className="ml-1 mt-2 space-y-1">
-                    <p className="text-xs text-[#444653] font-semibold">Password must contain:</p>
-                    <ul className="text-xs text-[#747684] space-y-0.5 ml-2">
-                      <li>• At least 8 characters</li>
-                      <li>• One uppercase letter</li>
-                      <li>• One number</li>
-                      <li>• One special character</li>
-                    </ul>
-                  </div>
+                  {passwordFocused && (
+                    <div className="ml-1 mt-2 space-y-1">
+                      <p className="text-xs text-[#444653] font-semibold">Password must contain:</p>
+                      <ul className="text-xs text-[#747684] space-y-0.5 ml-2">
+                        <li>• At least 8 characters</li>
+                        <li>• One uppercase letter</li>
+                        <li>• One number</li>
+                        <li>• One special character</li>
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </>
             )}
